@@ -59,11 +59,24 @@ class Member
   end
 
   def contribution_with_100_words
-    contributions.count { |c| c.body.split(' ').count >= 100 }
+    contributions.count do |c|
+      if !c.body.nil?
+        c.body.split(' ').count >= 100 
+      else 
+        false
+      end
+    end
   end
 
   def contribution_with_no_word
-    contributions.count { |c| c.body.strip.empty? }
+    contributions.count do |c|
+      if !c.body.nil?
+        c.body.strip.empty?
+      else 
+        puts c.body
+        false
+      end
+    end
   end
 
   def contribution_to_own_repos

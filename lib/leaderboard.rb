@@ -66,6 +66,7 @@ class Leaderboard
   # Those data are user info like name, link to avatar and profiles
   # and the list of contributions during the hacktoberfest's month
   def members
+    puts members_names
     members_data(members_names).values
                                .map { |user| Member.new(*user) }
   end

@@ -8,11 +8,11 @@ require_relative 'lib/leaderboard'
 require 'byebug' if ENV['APP_ENV'] == 'development'
 
 # URL to the participant list file. Can be local or remote
-PARTICIPANTS_FILE = (ENV['PARTICIPANTS_FILE'] || 'https://raw.githubusercontent.com/ourtigarage/hacktoberfest-summit/master/participants/2017.md').freeze
+PARTICIPANTS_FILE = (ENV['PARTICIPANTS_FILE'] || 'people.md').freeze
 # The date for the event in the format github date
 # search format. See https://help.github.com/articles/understanding-the-search-syntax/#query-for-dates
 # Default to ">=2005", since git was released in 2005
-EVENT_DATE = (ENV['EVENT_DATE'] || '>=2005').freeze
+EVENT_DATE = (ENV['EVENT_DATE'] || '>=2019-10-01').freeze
 
 Member.objective = (ENV['OBJECTIVE'] || '5').to_i.freeze
 
