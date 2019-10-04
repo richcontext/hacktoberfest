@@ -1,11 +1,11 @@
 # Participants
 
-* @addamh
-* @jarrodramsey
-* @jchittyRC 
-* @johnstonbl01
-* @kminehart
-* @mjcbsn22
-* @rlankfo
-* @Sitzilla
-* @TJBANEY
+* @addamh - Addam
+* @jarrodramsey - Jarrod
+* @jchittyRC - Josh
+* @johnstonbl01 - Blake
+* @kminehart - Kevin
+* @mjcbsn22 - Matt
+* @rlankfo - Rob
+* @Sitzilla - Evan
+* @TJBANEY - Tim

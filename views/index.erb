@@ -7,7 +7,7 @@
 		<tbody>
 			<% for member in members do %>
 				<tr class="member">
-					<td><a href="/<%=member.username%>">
+					<td style="width: 100px;"><a href="/<%=member.username%>">
 						<figure class="avatar avatar-xl badge" data-initial="YZ" data-badge="<%= member.contributions_count %>">
 							<img src="<%=member.avatar%>" alt="YZ"/>
 							<% if member.challenge_complete? %>
@@ -15,7 +15,7 @@
 							<% end %>
 						</figure>
 					</a></td>
-					<td><a href="/<%=member.username%>">
+					<td style="width:200px;"><a href="/<%=member.username%>">
 						<%=member.username%>
 					</a></td>
 					<td><div class="bar">
@@ -23,7 +23,7 @@
 							<%=member.contributions_count%>/<%=Member.objective%>
 						</div>
 					</div></td>
-					<td>
+					<td style="padding-left:25px;">
 						<!-- List of badges earned -->
 						<% for badge in member.badges
 							nbadge = badge.times_earned_by(member)
