@@ -58,6 +58,36 @@ class Member
     end
   end
 
+  def docker_contrib
+    contributions.count do |c|
+      c.repository_url.start_with?("https://github.com/docker")
+    end
+  end
+
+  def rails_contrib
+    contributions.count do |c|
+      c.repository_url.start_with?("https://github.com/rails/rails")
+    end
+  end
+
+  def ruby_contrib
+    contributions.count do |c|
+      c.repository_url.start_with?("https://github.com/ruby/ruby")
+    end
+  end
+
+  def node_contrib
+    contributions.count do |c|
+      c.repository_url.start_with?("https://github.com/nodejs/node")
+    end
+  end
+  
+  def django_contrib
+    contributions.count do |c|
+      c.repository_url.start_with?("https://github.com/django/django")
+    end
+  end
+
   def contribution_with_100_words
     contributions.count do |c|
       if !c.body.nil?

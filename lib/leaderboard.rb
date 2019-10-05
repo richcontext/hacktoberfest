@@ -19,15 +19,20 @@ LEADERBOARD_URL = "#{ORG_REPOS_URL}/hacktoberfest-leaderboard"
 # This is the list of all badges that can be earned
 # The block that define the badge's challenge should return either an integer or a boolean
 BADGES = [
-  Badge.new('hacktoberfest', 'Hacktoberfest completed', 'Completed the hacktoberfest challenge by submitting enough pull requests', &:challenge_complete?),
+  Badge.new('hacktoberfest', 'Hacktoberfest Completed', 'Completed the hacktoberfest challenge by submitting enough pull requests', &:challenge_complete?),
   # Badge.new('snake', 'The snake charmer', 'Submitted 1 Pull Request to the <a href="https://ourtigarage.github.io/web-snake/">snake game</a>\'s code repository', &:contributed_to_snake),
-  Badge.new('leaderboard', 'The leaderboard contributor', 'Submitted 1 Pull Request to this leaderboard\'s code repository', &:contributed_to_leaderboard),
-  Badge.new('10-contributions', 'The Pull Request champion', 'Submitted more than 10 Pull requests', &:ten_contributions?),
-  Badge.new('adventure', 'The adventurer', 'Submitted 1 Pull Request to a repository they do not own', &:contributed_out_of_org),
-  Badge.new('novelist', 'The novelist', 'Wrote more than 100 words in a Pull Request\'s description', &:contribution_with_100_words),
-  Badge.new('taciturn', 'The taciturn', 'Submitted a Pull Request with no description', &:contribution_with_no_word),
-  Badge.new('pirate', 'The mighty pirate', 'A lawless pirate who submitted Pull Requests to his own repositories. Cheater...', &:contribution_to_own_repos),
-  Badge.new('crap', 'The smelly code', 'Has a Pull Request marked as invalid. Probably some bad smelling code', &:invalid_contribs)
+  Badge.new('leaderboard', 'The Leaderboard Contributor', 'Submitted 1 Pull Request to this leaderboard\'s code repository', &:contributed_to_leaderboard),
+  Badge.new('10-contributions', 'The Pull Request Champion', 'Submitted more than 10 Pull requests', &:ten_contributions?),
+  Badge.new('adventure', 'The Adventurer', 'Submitted 1 Pull Request to a repository they do not own', &:contributed_out_of_org),
+  Badge.new('novelist', 'The Novelist', 'Wrote more than 100 words in a Pull Request\'s description', &:contribution_with_100_words),
+  Badge.new('taciturn', 'The Taciturn', 'Submitted a Pull Request with no description', &:contribution_with_no_word),
+  Badge.new('pirate', 'The Mighty Pirate', 'A lawless pirate who submitted Pull Requests to his own repositories. Cheater...', &:contribution_to_own_repos),
+  Badge.new('crap', 'The Smelly Code', 'Has a Pull Request marked as invalid. Probably some bad smelling code', &:invalid_contribs),
+  Badge.new('docker', 'The Sailor', 'Submitted 1 Pull Request for Docker', &:docker_contrib),
+  Badge.new('ruby', 'The Jewel Thief', 'Submitted 1 Pull Request for Ruby', &:ruby_contrib),
+  Badge.new('rails', 'The Conductor', 'Submitted 1 Pull Request for Ruby on Rails', &:rails_contrib),
+  Badge.new('node', 'The JS Hero', 'Submitted 1 Pull Request for NodeJS', &:node_contrib),
+  Badge.new('django', 'The Django Unchained', 'Submitted 1 Pull Request for Django', &:django_contrib)
 ].freeze
 
 # The leaderboard root class, where the magic happens
