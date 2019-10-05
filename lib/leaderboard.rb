@@ -12,7 +12,7 @@ include Concurrent
 
 BASE_API_URL = 'https://api.github.com'
 BASE_REPOS_URL = "#{BASE_API_URL}/repos"
-ORG_REPOS_URL = "#{BASE_REPOS_URL}/ourtigarage"
+ORG_REPOS_URL = "#{BASE_REPOS_URL}/richcontext"
 SNAKE_URL = "#{ORG_REPOS_URL}/web-snake"
 LEADERBOARD_URL = "#{ORG_REPOS_URL}/hacktoberfest-leaderboard"
 
@@ -23,7 +23,7 @@ BADGES = [
   # Badge.new('snake', 'The snake charmer', 'Submitted 1 Pull Request to the <a href="https://ourtigarage.github.io/web-snake/">snake game</a>\'s code repository', &:contributed_to_snake),
   Badge.new('leaderboard', 'The leaderboard contributor', 'Submitted 1 Pull Request to this leaderboard\'s code repository', &:contributed_to_leaderboard),
   Badge.new('10-contributions', 'The Pull Request champion', 'Submitted more than 10 Pull requests', &:ten_contributions?),
-  Badge.new('adventure', 'The adventurer', 'Submitted 1 Pull Request to a repository he does not own, out of <a href="https://github.com/richcontext">richcontext</a> organisation', &:contributed_out_of_org),
+  Badge.new('adventure', 'The adventurer', 'Submitted 1 Pull Request to a repository they do not own', &:contributed_out_of_org),
   Badge.new('novelist', 'The novelist', 'Wrote more than 100 words in a Pull Request\'s description', &:contribution_with_100_words),
   Badge.new('taciturn', 'The taciturn', 'Submitted a Pull Request with no description', &:contribution_with_no_word),
   Badge.new('pirate', 'The mighty pirate', 'A lawless pirate who submitted Pull Requests to his own repositories. Cheater...', &:contribution_to_own_repos),
