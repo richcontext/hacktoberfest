@@ -22,13 +22,13 @@
               <span style="position:absolute;right: 0;bottom: 0;" class="badge badge-primary"><%= member.contributions_count %></span>
             </div>
           </a></td>
-        <td style="width:150px;vertical-align:middle;border-top:0;"><a href="/<%=member.username%>">
+        <td style="width:150px;vertical-align:middle;border-top:0;text-align:center;"><a href="/<%=member.username%>">
+                <% if member.challenge_complete? %>
+          <img style="height:40px;" src="img/medal.png" class="avatar-icon">
+        <% end %>
             <%=member.username%>
           </a></td>
         <td style="padding-left:25px;border-top:0;">
-          <% if member.challenge_complete? %>
-           <img style="height:75px;" src="img/medal.png" class="avatar-icon">
-          <% end %>
           <% for badge in member.badges
 							nbadge = badge.times_earned_by(member)
 							cls = "avatar avatar-xl"
