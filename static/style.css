@@ -31,3 +31,47 @@ h1{
 .card{
 	word-break: break-word;
 }
+
+html, body {
+	background-color: #222245;
+	font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+	color: #80FFBB;
+}
+
+a {
+	color: #FAD000;
+}
+
+a:hover {
+	color: #FAD000;
+}
+
+.table td, .table th {
+	border-top: 1px solid #80FFBB;
+}
+
+.badge-primary {color: #222245;
+    color: #222245;
+    background-color: #80FFBB;
+
+}
+
+.progress-bar {
+	background-color: #80FFBB;
+	color: #222245;
+}
+
+img {
+	max-width: 100%;
+}
+
+hr {
+	border-top: 1px solid rgba(56, 255, 181, 0.4)
+}
+
+.card-body > h5 {
+	color: #222245;
+}

@@ -103,7 +103,6 @@ class Member
       if !c.body.nil?
         c.body.strip.empty?
       else 
-        puts c.body
         false
       end
     end

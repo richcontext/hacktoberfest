@@ -1,160 +1,96 @@
-<div class="subPart">
-  <div class="container">
-    <div class="columns">
-      <div class="panel centered column col-10">
-        <div class="panel-header text-center">
-          <figure class="avatar avatar-xl">
-            <img src="<%=member.avatar%>" alt="Avatar">
-            <% if member.challenge_complete? %>
-              <img src="img/medal.png" class="avatar-icon">
-            <% end %>
-          </figure>
-          <div class="panel-title h5 mt-10"><%=member.username%></div>
-          <div class="panel-subtitle">
-            <a href="<%=member.profile%>"><%=member.profile%></a>
-          </div>
+<div class="row">
+  <div class="col-3">
+    <figure class="avatar avatar-xl">
+              <img src="<%=member.avatar%>" alt="Avatar">
+              <% if member.challenge_complete? %>
+                <img src="img/medal.png" class="avatar-icon">
+              <% end %>
+            </figure>
+            <h4><%=member.username%></h4>
+            <div class="panel-subtitle">
+              <a href="<%=member.profile%>"><%=member.profile%></a>
+            </div>
+  </div>
+
+     <div class="col-9">
+        <div class="progress" style="height: 15px;">
+          <div class="progress-bar" role="progressbar" aria-valuenow="<%=member.challenge_completion%>" aria-valuemin="0" aria-valuemax="100" style="width:<%=member.challenge_completion%>%;">
+				    <%=member.contributions_count%>/<%=Member.objective%>
+			    </div>
+			  </div>
+
+        <div style="background-color:#fff" class="p-3 mt-3">
+          <% for badge in member.badges
+          nbadge = badge.times_earned_by(member)
+          cls = "avatar avatar-xl"
+          cls << " badge" if nbadge > 1
+          %>
+          <img data-toggle="popover" data-trigger="hover" title="<%=badge.title%>" data-content="<%=badge.description%>" style="height:75px;" src="img/badges/<%=badge.short%>.png" alt="<%=badge.short%>">
+          <% end %>
         </div>
+  </div>
+</div>
 
-        <div class="panel-body">
-          <div class="columns">
-            <div class="column col-6 col-md-12 tile centered">
-              <div class="tile-content">
-                <p class="tile-title text-bold">Progress</p>
-              </div>
-              <div class="tile tile-centered">
-                <div class="tile-content">
-                  <div class="bar">
-                    <div class="bar-item" style="width:<%=member.challenge_completion%>%;background:#818bd5;">
-                      <%=member.contributions_count%>/<%=Member.objective%>
-                    </div>
-                  </div>
-                </div>
-                <div class="tile-icon">
-                  <div class="example-tile-icon">
-                    <i class="icon icon-file centered">
-                      <% if member.challenge_complete? %>
-                        <figure class="avatar avatar-xl">
-                          <img src="/img/badges/hacktoberfest.png" alt="Challenge complete">
-                        </figure>
-                      <% end %>
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="column col-2 col-md-4 col-sm-12 tile centered text-center">
-              <div class="tile-content">
-                <p class="tile-title text-bold">Badges</p>
-              </div>
-              <div class="tile-icon">
-                <div class="example-tile-icon">
-                  <i class="icon icon-file text-center">
-                    <figure class="avatar avatar-xl" data-initial="<%=member.badges.length%>"></figure>
-                  </i>
-                </div>
-              </div>
-            </div>
-            <div class="column col-2 col-md-4 col-sm-12 tile centered text-center">
-              <div class="tile-content">
-                <p class="tile-title text-bold">Repositories</p>
-              </div>
-              <div class="tile-icon">
-                <div class="example-tile-icon">
-                  <i class="icon icon-file text-center">
-                    <figure class="avatar avatar-xl" data-initial="<%=member.repositories.length%>"></figure>
-                  </i>
-                </div>
-              </div>
-            </div>
-            <div class="column col-2 col-md-4 col-sm-12 tile centered text-center">
-              <div class="tile-content">
-                <p class="tile-title text-bold">Contributions</p>
-              </div>
-              <div class="tile-icon">
-                <div class="example-tile-icon">
-                  <i class="icon icon-file text-center">
-                    <figure class="avatar avatar-xl" data-initial="<%=member.contributions.length%>"></figure>
-                  </i>
-                </div>
-              </div>
-            </div>
-          </div>
+<hr/>
 
-          <div class="tile column centered">
-            <div class="tile-content">
-              <p class="tile-title text-bold">Badges</p>
-            </div>
-            <div class="columns">
-              <% for badge in member.badges
-                nbadge = badge.times_earned_by(member)
-                cls = "avatar avatar-xl"
-                cls << " badge" if nbadge > 1
-              %>
-                <div class="column col-3 col-md-6 col-sm-12">
-                  <div class="card text-left">
-                    <div class="card-header">
-                      <div class="card-title h5" text-left><%=badge.title%></div>
-                    </div>
-                    <div class="card-image text-center">
-                      <figure class="<%=cls%>" data-badge="<%=nbadge%>">
-                        <img src="img/badges/<%=badge.short%>.png" alt="<%=badge.short%>">
-                      </figure>
-                    </div>
-                    <div class="card-body">
-                      <%=badge.description%>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
-            </div>
+<div class="row">
+  <div class="col-12">
+    <h3 class="">Repositories</h3>
+    <% for repo in member.repositories%>
+      <div class="column col-3 col-md-6 col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title h5 text-left"><%=repo.name%></div>
+            <div class="card-title"><a href="<%=repo.url%>"><%=repo.slug%></a></div>
           </div>
-
-          <div class="tile column centered">
-            <div class="tile-content">
-              <p class="tile-title text-bold">Repositories</p>
-            </div>
-            <div class="columns">
-              <% for repo in member.repositories%>
-                <div class="column col-3 col-md-6 col-sm-12">
-                  <div class="card">
-                    <div class="card-header">
-                      <div class="card-title h5 text-left"><%=repo.name%></div>
-                      <div class="card-title"><a href="<%=repo.url%>"><%=repo.slug%></a></div>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          </div>
-
-          <div class="tile column centered">
-            <div class="tile-content">
-              <p class="tile-title text-bold">Contributions</p>
-            </div>
-            <div class="columns">
-              <% for contrib in member.contributions.concat(member.invalids)%>
-                <div class="column col-3 col-md-6 col-sm-12">
-                  <div class="card">
-                    <div class="card-header">
-                      <div class="card-title h5 text-left"><%=contrib.title%></div>
-                      <div class="card-title"><a href="<%=contrib.html_url%>">view contribution</a></div>
-                    </div>
-                    <% if contrib.labels.any? { |l| l.name == 'invalid' } %>
-                      <div class="card-body text-center">
-                        <figure class="avatar avatar-icon">
-                          <img src="img/badges/crap.png">
-                        </figure>
-                      </div>
-                    <% end %>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <div class="panel-footer">
         </div>
       </div>
+    <% end %>
+  </div>
+</div>
+
+<hr/>
+
+<div class="row">
+  <div class="col-12">
+    <h3 class="">Contributions</h3>
+    <% for contrib in member.contributions.concat(member.invalids)%>
+      <div class="column col-3 col-md-6 col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title h5 text-left"><%=contrib.title%></div>
+            <div class="card-title"><a href="<%=contrib.html_url%>">view contribution</a></div>
+          </div>
+          <% if contrib.labels.any? { |l| l.name == 'invalid' } %>
+            <div class="card-body text-center">
+              <figure class="avatar avatar-icon">
+                <img src="img/badges/crap.png">
+              </figure>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<hr/>
+
+<div class="row">
+  <div class="col-12">
+    <h3 class="">Badges</h3>
+    <% for badge in member.badges
+      nbadge = badge.times_earned_by(member)
+      cls = "avatar avatar-xl"
+      cls << " badge" if nbadge > 1
+    %>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="img/badges/<%=badge.short%>.png" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%=badge.title%></h5>
+        <p class="card-text"><%=badge.description%></p>
+      </div>
     </div>
+    <% end %>
   </div>
 </div>
