@@ -37,7 +37,7 @@
   <div class="col-12">
     <h3 class="">Repositories</h3>
     <% for repo in member.repositories%>
-      <div class="column col-3 col-md-6 col-sm-12">
+      <div class="column col-lg-3 col-md-6 col-sm-12">
         <div class="card">
           <div class="card-header">
             <div class="card-title h5 text-left"><%=repo.name%></div>
@@ -55,7 +55,7 @@
   <div class="col-12">
     <h3 class="">Contributions</h3>
     <% for contrib in member.contributions.concat(member.invalids)%>
-      <div class="column col-3 col-md-6 col-sm-12">
+      <div class="column col-lg-3 col-md-6 col-sm-12">
         <div class="card">
           <div class="card-header">
             <div class="card-title h5 text-left"><%=contrib.title%></div>
