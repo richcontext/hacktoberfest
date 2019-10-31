@@ -68,6 +68,14 @@ img {
 	max-width: 100%;
 }
 
+.badges img {
+	height: 100%;
+}
+
+.avatar {
+	height: 224px;
+}
+
 hr {
 	border-top: 1px solid rgba(56, 255, 181, 0.4)
 }
