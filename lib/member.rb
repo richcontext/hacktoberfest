@@ -60,31 +60,31 @@ class Member
 
   def docker_contrib
     contributions.count do |c|
-      c.repository_url.start_with?("https://github.com/docker")
+      c.repository_url.start_with?("https://api.github.com/repos/docker")
     end
   end
 
   def rails_contrib
     contributions.count do |c|
-      c.repository_url.start_with?("https://github.com/rails/rails")
+      c.repository_url.start_with?("https://api.github.com/repos/rails/rails")
     end
   end
 
   def ruby_contrib
     contributions.count do |c|
-      c.repository_url.start_with?("https://github.com/ruby/ruby")
+      c.repository_url.start_with?("https://api.github.com/repos/ruby/ruby")
     end
   end
 
   def node_contrib
     contributions.count do |c|
-      c.repository_url.start_with?("https://github.com/nodejs/node")
+      c.repository_url.start_with?("https://api.github.com/repos/nodejs/node")
     end
   end
   
   def django_contrib
     contributions.count do |c|
-      c.repository_url.start_with?("https://github.com/django/django")
+      c.repository_url.start_with?("https://api.github.com/repos/django/django")
     end
   end
 
