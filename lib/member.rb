@@ -94,6 +94,12 @@ class Member
     end
   end
 
+  def gatsby_contrib
+    contributions.count do |c|
+      c.repository_url.start_with?("https://api.github.com/repos/gatsbyjs")
+    end
+  end
+
   def contribution_with_100_words
     contributions.count do |c|
       if !c.body.nil?
