@@ -32,7 +32,8 @@ BADGES = [
   Badge.new('ruby', 'The Jewel Thief', 'Submitted 1 Pull Request for Ruby', &:ruby_contrib),
   Badge.new('rails', 'The Conductor', 'Submitted 1 Pull Request for Ruby on Rails', &:rails_contrib),
   Badge.new('node', 'The JS Hero', 'Submitted 1 Pull Request for NodeJS', &:node_contrib),
-  Badge.new('django', 'The Django Unchained', 'Submitted 1 Pull Request for Django', &:django_contrib)
+  Badge.new('django', 'The Django Unchained', 'Submitted 1 Pull Request for Django', &:django_contrib),
+  Badge.new('ember', 'The Tomster', 'Submitted 1 Pull Request for EmberJS', &:ember_contrib)
 ].freeze
 
 # The leaderboard root class, where the magic happens

@@ -88,6 +88,12 @@ class Member
     end
   end
 
+  def ember_contrib
+    contributions.count do |c|
+      c.repository_url.start_with?("https://api.github.com/repos/emberjs")
+    end
+  end
+
   def contribution_with_100_words
     contributions.count do |c|
       if !c.body.nil?
