@@ -90,7 +90,7 @@ class Member
 
   def ember_contrib
     contributions.count do |c|
-      c.repository_url.start_with?("https://api.github.com/repos/emberjs")
+      c.repository_url.start_with?("https://api.github.com/repos/ember")
     end
   end
 
